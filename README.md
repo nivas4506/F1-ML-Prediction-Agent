@@ -1,4 +1,4 @@
-# 🏎️ 2026 Formula 1 Multi-Task ML Model & Prediction Agent
+# 2026 Formula 1 Multi-Task ML Model & Prediction Agent
 
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
 [![Google Cloud TPU](https://img.shields.io/badge/Accelerator-Google_Cloud_TPU-4285F4?logo=google-cloud&logoColor=white)](https://cloud.google.com/tpu)
@@ -9,7 +9,7 @@ An end-to-end **Multi-Task Deep Neural Network** and autonomous **Prediction Age
 
 ---
 
-## 📌 Table of Contents
+## Table of Contents
 
 - [Key Features](#-key-features)
 - [Repository Structure](#-repository-structure)
@@ -23,7 +23,7 @@ An end-to-end **Multi-Task Deep Neural Network** and autonomous **Prediction Age
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - **2026 Technical Regulation Physics Engine**: Synthetic telemetry and race simulator incorporating active aerodynamics (**Z-Mode** high downforce & **X-Mode** low drag), the 50/50 electric-combustion power split (350 kW MGU-K), 100% sustainable fuels, and updated 2026 driver/constructor pairings.
 - **Distributed Cloud TPU Acceleration**: Native `tf.distribute.TPUStrategy` support for multi-core TPU pods (`v2`, `v3`, `v4`, `v5e`) with automatic fallback to local GPU or CPU strategies.
@@ -33,7 +33,7 @@ An end-to-end **Multi-Task Deep Neural Network** and autonomous **Prediction Age
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```text
 F1/
@@ -46,7 +46,7 @@ F1/
 
 ---
 
-## 🛠️ 2026 F1 Regulation & Domain Modeling
+## 2026 F1 Regulation & Domain Modeling
 
 ### 1. 2026 Constructor & Driver Grid
 The simulation models 10 constructors and 20 drivers with specialized ratings (`base_skill`, `wet_skill`, `racecraft`) and chassis/power unit parameters (`engine_power`, `active_aero`, `mech_grip`, `pit_efficiency`):
@@ -76,7 +76,7 @@ Each driver-race sample is represented by 15 standardized features (`FEATURE_COL
 
 ---
 
-## 🧠 Multi-Task Neural Network Architecture
+## Multi-Task Neural Network Architecture
 
 Built via `build_f1_multitask_model()`, the model uses residual dense blocks with **GELU** activations, **Batch/Layer Normalization**, and **Dropout** to learn a 64-dimensional `race_latent_embedding` before branching into four task-specific heads:
 
@@ -102,7 +102,7 @@ flowchart TD
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Google Colab with Cloud TPU
 
@@ -112,7 +112,7 @@ flowchart TD
    - Select **TPU** (e.g., TPU v2 / v3 / v4 / v5e) under **Hardware accelerator** and click **Save**.
 3. Select **Runtime** → **Run all** to execute the complete 24-cell pipeline (TPU initialization, synthetic dataset generation, distributed multi-task training, F1-score diagnostics, and championship simulations).
 
-> 💡 To regenerate `f1_2026_tpu_prediction_agent.ipynb` locally at any time, run:
+> To regenerate `f1_2026_tpu_prediction_agent.ipynb` locally at any time, run:
 > ```bash
 > python generate_colab_notebook.py
 > ```
@@ -176,7 +176,7 @@ flowchart TD
 
 ---
 
-## 🤖 Using the `F1PredictionAgent` API
+## Using the `F1PredictionAgent` API
 
 ### 1. Predict a Single Grand Prix
 Forecasts the complete 20-driver finishing order, expected finishing position (`Exp_Pos`), predicted points, and probabilities for Podium, Win, and Top-10 finishes:
@@ -218,7 +218,7 @@ print(summary)
 
 ---
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 
 The pipeline evaluates each task head with specialized metrics:
 
